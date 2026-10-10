@@ -8,6 +8,11 @@
 # It happened to us through an innocent-looking "show me the config" command.
 #
 # Allowed: --version / -v / --help / -h, which print and exit.
+#
+# Known false positive, and we've decided to live with it: it doesn't parse
+# shell quoting, so a | inside a quoted pattern followed by the binary's name
+# (grep -E "foo|<name> code") looks like a pipe into the CLI and gets blocked.
+# Annoying for a second. Rephrase the pattern. Missing a real launch would be worse.
 # Exit 2 blocks the tool call and shows the message to the model.
 
 raw="$(cat)"

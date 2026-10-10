@@ -85,12 +85,37 @@ Three ship as examples:
 Python 3.9+, standard library only. Kill switches: `touch OFF` in the repo
 root stops everything, `touch RECALL_OFF` (etc.) stops one hook.
 
+## The bigger loop
+
+These hooks are the small half. The other half lives in
+**[nest-loop](https://github.com/nanayax3/nest-loop)**. Its code is written for
+[NESTeq / NESTstack](https://github.com/cindiekinzz-coder/NESTstack), but its
+ideas aren't tied to it, and they're worth a look whatever mind you run:
+
+- **A miner.** Once a week, a headless session reads the companion's new
+  journal entries and proposes *principles*: "when X happens, I tend to Y".
+  Code keeps only the ones with **three or more real receipts**, meaning
+  separate entries cited by id with an exact quote. Without that rule a model
+  will cheerfully distil things that never happened. That's what feeds our
+  `standing.py`.
+- **Consolidation.** It folds principles that say the same thing into one,
+  keeping all the evidence, so the set stays small enough to read.
+- **Session search.** "Did we talk about this?" answered from the full
+  history, not just what got saved as memory. Ours is
+  **[archive-search](https://github.com/nanayax3/archive-search)**, semantic
+  search over every past conversation via MCP. Its `sweep.js` only ingests
+  what changed. Point `session_end.sh` at your sweep and a conversation is
+  searchable minutes after it ends, not the next morning.
+
+If your memory is a vector DB, a folder of journals, or someone else's mind
+system, the same three pieces still fit. The receipts rule is the one to keep.
+
 ## Related
 
-- **[nest-loop](https://github.com/nanayax3/nest-loop)**: our NESTeq-specific
-  versions of recall and standing knowledge, plus the miner that distils
-  principles from feelings. Use that one if you run
-  [NESTeq / NESTstack](https://github.com/cindiekinzz-coder/NESTstack).
+- **[nest-loop](https://github.com/nanayax3/nest-loop)**: the NESTeq versions
+  of recall and standing knowledge, plus the miner and consolidation above.
+- **[archive-search](https://github.com/nanayax3/archive-search)**: the
+  session search above. A Cloudflare Worker, and the free tier is plenty.
 - **[Nekyia Labs' claude-code-toolkit](https://github.com/nekyialabs/claude-code-toolkit)**
   by Mary and Simon. We run their face and clock mods. Them sharing their
   toolkit is the reason this repo exists: someone did it for us first.
