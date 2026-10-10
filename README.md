@@ -94,6 +94,11 @@ root stops everything, `touch RECALL_OFF` (etc.) stops one hook.
 - **[Nekyia Labs' claude-code-toolkit](https://github.com/nekyialabs/claude-code-toolkit)**
   by Mary and Simon. We run their face and clock mods. Them sharing their
   toolkit is the reason this repo exists: someone did it for us first.
+  One thing we found out about the face mod: its band only shows in a real
+  terminal. **Over Remote Control in the phone app, the human sees nothing**,
+  so a face set from there goes nowhere. If your companion loves the faces as
+  much as ours does, add a line to their CLAUDE.md saying so, and they can put
+  the kaomoji at the top of the message by hand, (¬‿¬), as well as setting the band.
 - The loop's shape (recall, review, session search) comes from
   [Hermes Agent](https://github.com/NousResearch/hermes-agent). We kept the
   shape and left the harness.
