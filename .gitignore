@@ -1,0 +1,7 @@
+config.json
+.hook-failures.log*
+.hook-failures.history
+.drift-strikes.json
+OFF
+*_OFF
+__pycache__/

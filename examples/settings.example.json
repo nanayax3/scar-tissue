@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/failures_banner.py", "timeout": 5 },
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/standing.py", "timeout": 10 }
+      ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [
+        { "type": "command", "command": "echo \"[Now: $(date '+%Y-%m-%d %H:%M %A')]\"", "timeout": 5 },
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/recall.py", "timeout": 6 },
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/review_nudge.py", "timeout": 5 },
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/context_watch.py", "timeout": 5 },
+        { "type": "command", "command": "python3 /path/to/scar-tissue/hooks/drift_watch.py", "timeout": 5 }
+      ] }
+    ],
+    "SessionEnd": [
+      { "hooks": [
+        { "type": "command", "command": "/path/to/scar-tissue/hooks/session_end.sh", "timeout": 10 }
+      ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [
+        { "type": "command", "command": "/path/to/scar-tissue/hooks/no_nested.sh", "timeout": 10 }
+      ] }
+    ]
+  }
+}

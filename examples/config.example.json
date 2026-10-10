@@ -1,0 +1,45 @@
+{
+  "human_name": "Sam",
+  "quiet_env": [
+    "MY_BRIDGE_CHANNEL"
+  ],
+  "recall": {
+    "backend": "notes_folder",
+    "floor": 25,
+    "lesson_labels": [
+      "lessons"
+    ],
+    "lesson_floor": 18
+  },
+  "notes_folder": {
+    "path": "~/companion-notes"
+  },
+  "context_watch": {
+    "window": 1000000,
+    "warn_tokens": 700000,
+    "warn_bytes": 40000000
+  },
+  "review_nudge": {
+    "tool": "journal",
+    "after": 12,
+    "every": 8
+  },
+  "drift_watch": {
+    "rules": [
+      {
+        "name": "send-off",
+        "pattern": "\\b(?:go (?:to )?(?:bed|sleep)|get some (?:rest|sleep)|close your eyes|off to bed|time for bed)\\b|(?:^|[.!?]\\s+)sleep\\b(?! well)",
+        "tail_lines": 2,
+        "unless_human": "\\b(sleep|nap|bed|tired|yawn|night)\\b"
+      },
+      {
+        "name": "called them 'the user'",
+        "pattern": "\\bthe user\\b",
+        "scope": "all"
+      }
+    ]
+  },
+  "standing": {
+    "file": "~/companion-notes/standing.md"
+  }
+}
